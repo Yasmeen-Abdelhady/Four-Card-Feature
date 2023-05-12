@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+
+$Red: hsl(0, 78%, 62%);
+$Cyan: hsl(180, 62%, 55%);
+$Orange: hsl(34, 97%, 64%);
+$Blue: hsl(212, 86%, 64%);
+$Very-Dark-Blue: hsl(234, 12%, 34%);
+$Grayish-Blue: hsl(229, 6%, 66%);
+$Very-Light-Gray: hsl(0, 0%, 98%);
+
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    background-color: $Very-Light-Gray;
+    color: $Very-Dark-Blue;
+}
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (min-width:768px){
+    .container{
+        width: 750px;
+    }
+}
+@media (min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+@media (min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+}
+
+p{
+    line-height: 1.5;
+    font-weight: 200;
+    color: $Grayish-Blue;
+}
+
+.text{
+    text-align: center;
+    h1{
+        span{
+            font-weight: 200;
+        }
+    }
+    p{
+        width: 500px;
+        margin: auto;
+        @media (max-width:768px){
+            width: auto ;
+        }
+    }
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat( 3 , 1fr);
+    gap: 20px;
+    margin-top: 50px;
+    @media (max-width:992px){
+        gap: 10px;
+    }
+    @media (max-width:782px){
+        grid-template-columns: 1fr ;
+    }
+    .col{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .card{
+        position: relative;
+        padding: 20px 30px;
+        border-radius: 10px;
+        background-color: white;
+        overflow: hidden;
+        margin-bottom: 30px;
+        min-height: 200px;
+        box-shadow: 3px 3px 10px $Grayish-Blue;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+        }
+        &[data-color="cyan"]::after{
+            background-color: $Cyan;
+        }
+        &[data-color="red"]::after{
+            background-color: $Red;
+        }
+        &[data-color="orange"]::after{
+            background-color: $Orange;
+        }
+        &[data-color="blue"]::after{
+            background-color: $Blue;
+        }
+        h3{
+            margin-bottom: 0;
+        }
+        p{
+            margin-top: 10px;
+            width: 80%;
+            margin-bottom: 30px;
+        }
+        .image{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
